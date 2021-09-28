@@ -1,0 +1,10 @@
+.toggle-card {
+  padding: 0 8px;
+  height: 100%;
+  /* color: rgb(0, 0, 0); */
+}
+.toggle-card svg {
+  font-size: 30px;
+  align-self: center;
+  height: 100%;
+}
