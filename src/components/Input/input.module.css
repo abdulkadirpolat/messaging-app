@@ -1,0 +1,8 @@
+ .search {
+     flex: 1;
+     padding: 12px 16px;
+     background-color: #f3f3f3;
+     color: rgb(56, 56, 56);
+     outline: none;
+     border: none;
+ }

@@ -1,37 +1,24 @@
-import React, { useEffect, useState } from "react";
-import Login from './pages/Login.js'
-import MessageContainer from "./components/Message/MessageContainer";
-// import usersJson from ' mock_users.json'
 import "./App.css";
-import axios from "axios";
+import Chat from "./components/Chat/Chat";
+import { ThemeProvider } from "./context/ThemeContext";
+import { UserProvider } from "./context/UserContext";
+import { FetchProvider } from "./context/FetchContext";
+import { FilterProvider } from "./context/FilterSearch";
+
+
 function App() {
-  const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    async function FetchUsersData() {
-      await axios
-        .get("data.json")
-        .then((res) => setUsers(res.data))
-        .catch((err) => console.log(err))
-        .finally(() => setIsLoading(false));
-    }
-    FetchUsersData();
-  }, []);
-  console.log(users);
   return (
-    <>
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        <div className="App">
-          {/* <Login /> */}
-          {/* <MessageContainer /> */}
-         
-         <MessageContainer usersData= {users} />
-   
-        </div>
-      )}
-    </>
+    <div className="App">
+      <ThemeProvider>
+        <UserProvider>
+          <FetchProvider>
+            <FilterProvider>
+              <Chat />
+            </FilterProvider>
+          </FetchProvider>
+        </UserProvider>
+      </ThemeProvider>
+    </div>
   );
 }
 

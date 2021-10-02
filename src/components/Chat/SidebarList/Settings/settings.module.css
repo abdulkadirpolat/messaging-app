@@ -1,0 +1,21 @@
+.bottom_toggle_btn {
+  background-color: #d6d6d6;
+  border: none;
+  margin-right: 10px;
+}
+.exit_btn {
+  padding: 0 8px;
+  background-color: #d6d6d6;
+  color: white;
+}
+.exit_btn svg {
+  font-size: 30px;
+  align-self: center;
+  height: 100%;
+}
+.bottom_toggle_btn_dark {
+  background-color: #7a7a7a;
+}
+.exit_btn_dark {
+  background-color: #7a7a7a;
+}

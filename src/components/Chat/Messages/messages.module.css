@@ -1,0 +1,17 @@
+.chat_part {
+  flex: 4;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chat_part_dark {
+  background-color: #7a7a7a;
+}
+
+@media screen and (max-width: 1280px) {
+  .chat_part {
+    flex: 2;
+  }
+}

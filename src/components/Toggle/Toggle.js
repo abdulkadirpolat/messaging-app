@@ -1,13 +1,16 @@
-import React from "react";
-import "./toggle.css";
-// import { IoCallOutline } from "react-icons/io5";
-import { WiMoonFull } from "react-icons/wi";
-// import { FiSun } from "react-icons/fi";
-const toggle = false;
-
+import { useTheme } from "../../context/ThemeContext";
+import styles from "./toggle.module.css";
+import { IoMoonOutline } from "react-icons/io5";
+ 
 function Toggle() {
+  const { theme, setTheme } = useTheme();
   return (
-    <div className="toggle-card">  <WiMoonFull style=  {  toggle ? { color: "gray"} :  {color: "white"}   }  /></div>
+    <div
+      className={styles.toggle_card}
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+    >
+      <IoMoonOutline style={{ color: "white" }} />
+    </div>
   );
 }
 

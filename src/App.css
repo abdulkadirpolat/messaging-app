@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   list-style: none;
+  text-decoration: none;
 }
 html,
 body {
@@ -19,7 +20,7 @@ body {
 .App {
   height: 100%;
   /* border-left: 1px solid rgb(236, 236, 236); */
-  border-right: 1px solid rgb(236, 236, 236);
+  /* border-right: 1px solid rgb(236, 236, 236); */
 }
 ::-webkit-scrollbar {
   width: 7px;
