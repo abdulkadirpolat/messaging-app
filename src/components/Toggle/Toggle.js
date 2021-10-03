@@ -1,9 +1,10 @@
-import { useTheme } from "../../context/ThemeContext";
+import React from "react";
 import styles from "./toggle.module.css";
 import { IoMoonOutline } from "react-icons/io5";
+import { useUser } from "../../context/UserContext";
  
 function Toggle() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useUser()
   return (
     <div
       className={styles.toggle_card}

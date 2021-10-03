@@ -1,15 +1,17 @@
-import { useContext, createContext, useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import { useContext, createContext, useState, useEffect } from "react";
 
+import userDataList from "../data.json";
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [chat, setChat] = useState([]);
-  const [myMessage, setMyMessage] = useState([]);
-  const [avatar, setAvatar] = useState("");
-  const [messagesData, setMessagesData] = useState("");
-  const [detail, setDetail] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [userData, setUserData] = useState(userDataList.users);
+  const [detailIsVisible, setDetailIsVisible] = useState(false);
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const login = (id, username, firstname, lastname) => {
     if (!username == "" && !firstname == "" && !lastname == "") {
@@ -22,6 +24,8 @@ const UserProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
+    setUserData(userDataList.users);
+    setSelectedUser(null)
     localStorage.removeItem("user_information");
   };
   useEffect(() => {
@@ -32,21 +36,49 @@ const UserProvider = ({ children }) => {
     }
   }, []);
 
+  const friendListUserId = (userId) => {
+    const userIdData = userData?.find((use) => use.id === userId);
+    if (userIdData) setSelectedUser(userIdData);
+  };
+
+  const sendNewMessage = (messageText) => {
+    if (!selectedUser) return;
+    const newSelectedUser = {
+      ...selectedUser,
+      messages: [
+        ...selectedUser.messages,
+        {
+          id: "C" + new Date().getTime(),
+          text: messageText,
+          sender: user.id,
+        },
+      ],
+    };
+    setSelectedUser(newSelectedUser);
+
+    const newUserList = userData.map((newUser) => {
+      if (newUser.id === selectedUser.id) return newSelectedUser;
+      return newUser;
+    });
+
+    setUserData(newUserList);
+  };
+
   const values = {
     user,
     setUser,
     login,
     logout,
-    chat,
-    setChat,
-    myMessage,
-    setMyMessage,
-    avatar,
-    setAvatar,
-    messagesData,
-    setMessagesData,
-    detail,
-    setDetail,
+    theme,
+    setTheme,
+    sendNewMessage,
+    selectedUser,
+    setSelectedUser,
+    userData,
+    setUserData,
+    friendListUserId,
+    setDetailIsVisible,
+    detailIsVisible,
   };
 
   return (
