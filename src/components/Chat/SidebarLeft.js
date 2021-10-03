@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable eqeqeq */
+/* eslint-disable array-callback-return */
 import React from "react";
 import { useUser } from "../../context/UserContext";
 import { useFilter } from "../../context/FilterSearch";

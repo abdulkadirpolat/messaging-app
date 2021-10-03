@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { useContext, createContext, useState, useEffect } from "react";
 
 import userDataList from "../data.json";
