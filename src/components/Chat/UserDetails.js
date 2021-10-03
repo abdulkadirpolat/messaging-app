@@ -9,9 +9,7 @@ function UserDetails() {
   const { selectedUser, theme, setDetailIsVisible } = useUser()
   return (
     <div
-      className={styles.user_detail_container}
-      className={`${styles.user_detail_container} ${theme === "dark" ? styles.user_detail_container_dark : ""
-        }`}
+      className={`${styles.user_detail_container} ${theme === "dark" ? styles.user_detail_container_dark : "" }`}
     >
       <div
         className={`${styles.user_detail_header} ${theme === "dark" ? styles.user_detail_header_dark : ""

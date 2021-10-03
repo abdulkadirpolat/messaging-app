@@ -14,7 +14,7 @@ const UserProvider = ({ children }) => {
   }, [theme]);
 
   const login = (id, username, firstname, lastname) => {
-    if (!username == "" && !firstname == "" && !lastname == "") {
+    if (!username === "" && !firstname === "" && !lastname === "") {
       const user = { id, username, firstname, lastname };
 
       setUser(user);
@@ -25,7 +25,7 @@ const UserProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     setUserData(userDataList.users);
-    setSelectedUser(null)
+    setSelectedUser(null);
     localStorage.removeItem("user_information");
   };
   useEffect(() => {

@@ -11,7 +11,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 60px; 
+  padding-right: 60px;
 }
 
 .user_detail_header svg {
@@ -35,7 +35,7 @@
   border-radius: 50%;
   width: 150px;
   height: 150px;
-  background: #E6E6E6;
+  background: #e6e6e6;
 }
 .user_name {
   margin: 15px 0 20px 0;
@@ -56,7 +56,8 @@
   margin-right: 20px;
   padding: 10px 30px;
   background-color: rgb(201, 201, 201);
-  color: rgb(0, 174, 255);cursor: pointer;
+  color: rgb(0, 174, 255);
+  cursor: pointer;
 }
 .contact div {
   font-size: 16px;

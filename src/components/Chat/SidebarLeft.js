@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { useUser } from "../../context/UserContext";
 import { useFilter } from "../../context/FilterSearch";
@@ -15,7 +17,7 @@ function SidebarLeft() {
 
   const filterVal = (arr) => {
     return arr.filter((val) => {
-      if (filterSearch == "") {
+      if (filterSearch === "") {
         return val;
       } else if (
         `${val.first_name} ${val.last_name}`

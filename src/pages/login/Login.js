@@ -3,15 +3,14 @@ import "./login.css";
 import Toggle from "../../components/Toggle/Toggle";
 import { useUser } from "../../context/UserContext";
 import { Redirect } from "react-router";
-import Input from "../../components/Input/Input"
+import Input from "../../components/Input/Input";
 function Login() {
-
   const { user, login, theme } = useUser();
-  const [userName, setUserName] = useState("")
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
+  const [userName, setUserName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
-  if (user) return <Redirect to="/chat" />
+  if (user) return <Redirect to="/chat" />;
   return (
     <div className={`login-container ${theme}`}>
       <button className={`toggle-btn ${theme}`}>
@@ -41,10 +40,13 @@ function Login() {
           placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
         />
-        <button className={`login-btn ${theme}`} onClick={() => {
-          const id = 'C' + new Date().getTime();
-          login(id, userName, firstName, lastName)
-        }}>
+        <button
+          className={`login-btn ${theme}`}
+          onClick={() => {
+            const id = "C" + new Date().getTime();
+            login(id, userName, firstName, lastName);
+          }}
+        >
           LOGIN
         </button>
       </div>
