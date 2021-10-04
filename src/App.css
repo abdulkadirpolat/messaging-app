@@ -10,6 +10,8 @@ html,
 body {
   height: 100%;
   width: 100%;
+  font-size: 14px;
+  font-weight: 400;
 }
 #root {
   height: 100%;
@@ -17,7 +19,6 @@ body {
 }
 .App {
   height: 100%;
-
 }
 ::-webkit-scrollbar {
   width: 7px;
