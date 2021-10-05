@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./login.css";
-import Toggle from "../../components/Toggle/Toggle";
+import {Input, Toggle} from "../../components";
 import { useUser } from "../../context/UserContext";
 import { Redirect } from "react-router";
-import Input from "../../components/Input/Input";
+
 function Login() {
   const { user, login, theme } = useUser();
   const [userName, setUserName] = useState("");

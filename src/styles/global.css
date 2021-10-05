@@ -1,3 +1,12 @@
+/* Chat */
+.message_container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+/* Chat */
+
 /* Sidebar List */
 
 .friends_container {
@@ -184,7 +193,6 @@
   margin-left: 20px;
 }
 .header_tool {
-  height: 100%;
   height: 40px;
   padding: 10px;
   cursor: pointer;
@@ -201,6 +209,7 @@
   font-size: large;
   background-color: transparent;
   cursor: pointer;
+  color: black;
 }
 .detail_btn svg {
   align-self: center;
@@ -213,7 +222,7 @@
   color: #7a7a7a;
 }
 
-.friend_messages_arrow {
+/* .friend_messages_arrow {
   display: none;
   padding: 5px 5px;
   font-size: 23px;
@@ -223,7 +232,7 @@
 .friend_messages_arrow svg {
   height: 100%;
   align-self: center;
-}
+} */
 /* @media screen and (max-width: 925px) {
   .friend_messages_arrow {
     display: block;

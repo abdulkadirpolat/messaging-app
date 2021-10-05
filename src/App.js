@@ -1,14 +1,14 @@
 import "./App.css";
-import Chat from "./components/Chat/Chat";
 import { UserProvider } from "./context/UserContext";
 import { FilterProvider } from "./context/FilterSearch";
+import Routes from "./routes";
 
 function App() {
   return (
     <div className="App">
       <UserProvider>
         <FilterProvider>
-          <Chat />
+          <Routes />
         </FilterProvider>
       </UserProvider>
     </div>

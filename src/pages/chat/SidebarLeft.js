@@ -4,17 +4,15 @@
 import React from "react";
 import { useUser } from "../../context/UserContext";
 import { useFilter } from "../../context/FilterSearch";
-import Input from "../Input/Input";
-import Toggle from "../Toggle/Toggle";
+import { Input, Toggle } from "../../components";
 import { IoExitOutline } from "react-icons/io5";
 import "../../styles/global.css";
+import { Link } from "react-router-dom";
 
 function SidebarLeft() {
-  const { logout, theme, userData, friendListUserId } = useUser();
+  const { logout, theme, userData, friendListUserId, setDetailIsVisible } =
+    useUser();
   const { filterSearch, setFilterSearch } = useFilter();
-  function handleFriendListUserId(userId) {
-    friendListUserId(userId);
-  }
 
   const filterVal = (arr) => {
     return arr.filter((val) => {
@@ -32,6 +30,7 @@ function SidebarLeft() {
 
   return (
     <div
+      style={{}}
       className={`${"friends_container"} ${
         theme === "dark" ? "friends_container_dark" : ""
       }`}
@@ -57,10 +56,14 @@ function SidebarLeft() {
       <ul className="friends_list">
         {filterVal(userData).map((val) => {
           return (
-            <li
-              onClick={() => handleFriendListUserId(val.id)}
+            <Link
               key={val.id}
-              className={`  list_item ${
+              onClick={() => {
+                friendListUserId(val.id);
+                setDetailIsVisible(false);
+              }}
+              to="/chat"
+              className={`list_item ${
                 theme === "dark" ? "list_item_dark" : ""
               }`}
             >
@@ -70,13 +73,13 @@ function SidebarLeft() {
                 }`}
               ></div>
 
-              <div className={` friend_info `}>
+              <div className={`friend_info`}>
                 <div>{`${val.first_name} ${val.last_name}`}</div>
                 <div className="last_message">
                   {val.messages[val.messages.length - 1]?.text.slice(0, 30)}
                 </div>
               </div>
-            </li>
+            </Link>
           );
         })}
       </ul>

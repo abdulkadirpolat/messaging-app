@@ -4,16 +4,18 @@ import { useContext, createContext, useState, useEffect } from "react";
 import userDataList from "../data.json";
 const UserContext = createContext();
 
-const UserProvider = ({ children }) => {
+const UserProvider = ({ children }) => { 
   const [user, setUser] = useState(null);
   const [selectedUser, setSelectedUser] = useState(null);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [userData, setUserData] = useState(userDataList.users);
   const [detailIsVisible, setDetailIsVisible] = useState(false);
+  // const [arrowRotate, setArrowRotate] = useState(!selectedUser ? null :  "");
   useEffect(() => {
     localStorage.setItem("theme", theme);
   }, [theme]);
-
+ 
+ 
   const login = (id, username, firstname, lastname) => {
     if (!username == "" && !firstname == "" && !lastname == "") {
       const user = { id, username, firstname, lastname };
@@ -26,7 +28,8 @@ const UserProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     setUserData(userDataList.users);
-    setSelectedUser(null)
+    setSelectedUser(null);
+    setDetailIsVisible(false)
     localStorage.removeItem("user_information");
   };
   useEffect(() => {
@@ -80,6 +83,8 @@ const UserProvider = ({ children }) => {
     friendListUserId,
     setDetailIsVisible,
     detailIsVisible,
+    // arrowRotate,
+    // setArrowRotate,
   };
 
   return (
