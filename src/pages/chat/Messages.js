@@ -1,7 +1,7 @@
 import { BsThreeDots } from "react-icons/bs";
 // import { IoArrowBackOutline } from "react-icons/io5";
 import React, { useState } from "react";
-import { Input } from "../../components";
+import { Input, Button } from "../../components";
 import { useUser } from "../../context/UserContext";
 import { Link } from "react-router-dom";
 import "../../styles/global.css";
@@ -23,7 +23,7 @@ function Messages() {
     sendNewMessage(searchMessage);
     setSearchMessage("");
   }
- 
+
   return (
     <div className={` chat_part  ${theme === "dark" ? "chat_part_dark" : ""}`}>
       {selectedUser && (
@@ -101,9 +101,13 @@ function Messages() {
               onChange={(e) => setSearchMessage(e.target.value)}
             />
 
-            <button className="footer_btn" onClick={() => handleClick()}>
+            <Button
+              padding="10px 20px "
+              margin="0 0 0 20px"
+              onClick={() => handleClick()}
+            >
               Send
-            </button>
+            </Button>
           </div>
         </>
       )}

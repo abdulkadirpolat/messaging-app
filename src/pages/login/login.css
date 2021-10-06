@@ -21,15 +21,7 @@
   color: #bbbbbb;
   margin-bottom: 10px;
 }
-.login-btn {
-  background-color: #68b7ff;
-  color: white;
-  padding: 15px 5px;
-  outline: none;
-  border: none;
-  margin-bottom: 60px;
-  cursor: pointer;
-}
+
 .toggle-btn {
   position: absolute;
   top: 20px;
@@ -49,7 +41,4 @@
 }
 .input.dark {
   background-color: #8d8c8c;
-}
-.login-btn.dark {
-  background-color: #4d8dc8;
 }

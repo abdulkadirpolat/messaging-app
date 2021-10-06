@@ -295,16 +295,7 @@
   display: flex;
   padding: 11.5px 17px;
 }
-
-.footer_btn {
-  background-color: #68b7ff;
-  color: white;
-  padding: 10px 20px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  margin-left: 30px;
-}
+ 
 .footer_message_dark {
   border-top: 1px solid rgb(117, 117, 117);
   background-color: #7a7a7a;
