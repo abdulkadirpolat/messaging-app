@@ -1,14 +1,29 @@
-import { useState } from "react";
 import "./login.css";
-import {Input, Toggle} from "../../components";
+import { Input, Toggle,Button } from "../../components";
 import { useUser } from "../../context/UserContext";
 import { Redirect } from "react-router";
 
+import { useForm } from "react-hook-form";
+
 function Login() {
   const { user, login, theme } = useUser();
-  const [userName, setUserName] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const errorValidating = {
+    required: true,
+    maxLength: 15,
+    minLength: 3,
+  };
+
+  const submitForm = (data) => {
+    const id = "C" + new Date().getTime();
+    login(id, data.userName, data.firstName, data.lastName);
+  };
 
   if (user) return <Redirect to="/chat" />;
   return (
@@ -17,39 +32,28 @@ function Login() {
         <Toggle />
       </button>
 
-      <div className="login-card">
+      <form onSubmit={handleSubmit(submitForm)} className="login-card">
         <h3 className={`login-title ${theme}`}>Log in to your account</h3>
         <Input
+          error={errors.userName}
+          {...register("userName", errorValidating)}
           className={`input ${theme}`}
-          id="user-name"
-          type="text"
           placeholder="User Name"
-          onChange={(e) => setUserName(e.target.value)}
         />
         <Input
+          error={errors.firstName}
+          {...register("firstName", errorValidating)}
           className={`input ${theme}`}
-          id="first-name"
-          type="text"
           placeholder="First Name"
-          onChange={(e) => setFirstName(e.target.value)}
         />
         <Input
+          error={errors.lastName}
+          {...register("lastName", errorValidating)}
           className={`input ${theme}`}
-          id="last-name"
-          type="text"
           placeholder="Last Name"
-          onChange={(e) => setLastName(e.target.value)}
         />
-        <button
-          className={`login-btn ${theme}`}
-          onClick={() => {
-            const id = "C" + new Date().getTime();
-            login(id, userName, firstName, lastName);
-          }}
-        >
-          LOGIN
-        </button>
-      </div>
+        <Button bgColor={theme === "dark" ? "#4d8dc8" : ""}>LOGIN</Button>
+      </form>
     </div>
   );
 }

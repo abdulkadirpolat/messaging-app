@@ -6,3 +6,9 @@
      outline: none;
      border: none;
  }
+ .error {
+     color: rgb(255, 80, 80) ;
+     text-align: start;
+     margin-bottom: 5px;
+     
+ }
