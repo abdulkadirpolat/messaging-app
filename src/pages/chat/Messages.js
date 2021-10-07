@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Input, Button } from "../../components";
 import { useUser } from "../../context/UserContext";
 import { Link } from "react-router-dom";
+import ScrollableFeed from "react-scrollable-feed";
 import "../../styles/global.css";
 
 function Messages() {
@@ -67,7 +68,7 @@ function Messages() {
               theme === "dark" ? "middle_messages_dark" : ""
             }`}
           >
-            <ul className="message_list">
+            <ScrollableFeed className="message_list">
               {/* Messages List Item */}
               {selectedUser?.messages.map((item, i) => {
                 return (
@@ -85,7 +86,7 @@ function Messages() {
                   </li>
                 );
               })}
-            </ul>
+            </ScrollableFeed>
           </div>
 
           <div
